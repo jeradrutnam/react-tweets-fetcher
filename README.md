@@ -1,23 +1,15 @@
 # React Read Twitter
 Simple React + Node API consuming solution for Twitter API
 
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
-
-Below you will find some information on how to perform common tasks.<br>
-You can find the most recent version of this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
-
 ## Table of Contents
 
-- [Sending Feedback](#sending-feedback)
 - [Folder Structure](#folder-structure)
 - [Available Scripts](#available-scripts)
   - [npm start](#npm-start)
   - [npm test](#npm-test)
   - [npm run build](#npm-run-build)
-
-## Reporting Issues
-
-We are always open to [your feedback](https://github.com/jeradrutnam/react-read-twitter/issues).
+- [Reporting Issues](#reporting-issues)
+- [License](#license)
 
 ## Folder Structure
 
@@ -28,6 +20,8 @@ react-read-twitter/
   README.md
   node_modules/
   package.json
+  config.js
+  server.js
   public/
     index.html
     favicon.ico
@@ -60,6 +54,11 @@ They will not be included in the production build so you can use them for things
 
 In the project directory, you can run:
 
+### `node server`
+
+Starts the back-end.<br>
+Use [http://localhost:3001](http://localhost:3001) to access the server.
+
 ### `npm start`
 
 Runs the app in the development mode.<br>
@@ -82,6 +81,10 @@ The build is minified and the filenames include the hashes.<br>
 Your app is ready to be deployed!
 
 See the section about [deployment](#deployment) for more information.
+
+## Reporting Issues
+
+We are always open to [your feedback](https://github.com/jeradrutnam/react-read-twitter/issues).
 
 ## License
 
