@@ -1,0 +1,18 @@
+body .page-header {
+  background-image: url('/assets/img/bg.jpg');
+  background-size: auto;
+  background-position: top center;
+  background-attachment: fixed;
+}
+
+body .page-header > .container {
+  padding-top: 20vh;
+}
+
+.form-control:focus {
+  box-shadow: none;
+}
+
+.info {
+  max-width: 560px;
+}
