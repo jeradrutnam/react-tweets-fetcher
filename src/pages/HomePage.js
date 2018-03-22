@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Search from '../components/Search';
 import Tweets from '../components/Tweets';
 import Title from '../components/Title';
 
@@ -12,14 +11,7 @@ class HomePage extends Component {
                 <div className="card card-signup">
                     <Title />
                     <div className="card-body">
-                        <div className="row">
-                            <div className="col-md-12 mr-auto">
-                                <Search />
-                            </div>
-                            <div className="col-md-12 ml-auto">
-                                <Tweets />
-                            </div>
-                        </div>
+                        <Tweets />
                     </div>
                 </div>
             </div>

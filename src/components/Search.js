@@ -12,7 +12,7 @@ class Search extends Component {
                             <i className="material-icons">face</i>
                         </span>
                     </div>
-                    <input type="text" className="form-control" placeholder="Enter Account Name"/>
+                    <input type="text" className="form-control" placeholder="Enter Account Name" name={this.props.name} onChange={this.props.onChangeName} />
                 </div>
             </div>
             <div className="form-group bmd-form-group">
@@ -22,11 +22,11 @@ class Search extends Component {
                             <i className="material-icons">list</i>
                         </span>
                     </div>
-                    <input type="text" className="form-control" placeholder="Tweets Count"/>
+                    <input type="text" className="form-control" placeholder="Tweets Count" count={this.props.count} onChange={this.props.onChangeCount} />
                 </div>
             </div>
             <div className="text-center">
-                <a href="#pablo" className="btn btn-primary btn-round">Fetch<div className="ripple-container"></div></a>
+                <button className="btn btn-primary btn-round" checked={this.props.searched} onClick={this.props.onSearch}>Fetch<div className="ripple-container"></div></button>
             </div>
         </form>
       </div>

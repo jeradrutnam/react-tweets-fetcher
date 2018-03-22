@@ -15,13 +15,13 @@ class App extends Component {
                   <nav className="pull-left">
                       <ul>
                           <li>
-                              <a href="http://jeradrutnam.com">
+                              <a href="https://github.com/jeradrutnam/" target="_blank" rel="noopener noreferrer">
                                   About Me
                               </a>
                           </li>
                           <li>
-                              <a href="https://github.com/jeradrutnam/react-read-twitter/blob/master/LICENSE">
-                                  Licenses
+                              <a href="https://github.com/jeradrutnam/react-read-twitter/blob/master/LICENSE" target="_blank" rel="noopener noreferrer">
+                                  License
                               </a>
                           </li>
                       </ul>
@@ -31,7 +31,7 @@ class App extends Component {
                       <script>
                           document.write(new Date().getFullYear())
                       </script> Made with <i className="material-icons">favorite</i> by
-                      <a href="https://jeradrutnam.com" target="_blank" rel="noopener noreferrer"> Jerad Rutnam</a>.
+                      <a href="https://jeradrutnam.com" target="_blank" rel="noopener noreferrer"> Jerad Rutnam</a>
                   </div>
               </div>
           </footer>
