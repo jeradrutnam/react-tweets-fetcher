@@ -1,18 +1,49 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import Titles from './components/Titles';
 import './App.css';
 
+const API = 'http://localhost:3001/twitter?screen_name=jeradrutnam';
+
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      dataSource: {}
+    };
+  }
+
+  componentWillMount(){
+     fetch(API)
+      .then((response) => response.json())
+      .then((responseJson) => {
+
+        console.log(typeof responseJson);
+
+        this.setState({
+          dataSource: responseJson,
+        }, function(){
+          console.log(this.state.dataSource);
+        });
+
+      })
+      .catch((error) =>{
+        console.error(error);
+      });
+  }
+
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+          <Titles />
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <div>
+          {
+              Object.keys(this.state.dataSource).map(key => {
+                  return <div key={key}>{this.state.dataSource[key].text}<br /><br /></div>;
+              })
+          }
+        </div>
       </div>
     );
   }
