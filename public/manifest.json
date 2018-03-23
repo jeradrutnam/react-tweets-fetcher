@@ -1,6 +1,6 @@
 {
-  "short_name": "React Twitter",
-  "name": "React Read Twitter",
+  "short_name": "RT Fetcher",
+  "name": "React Tweets Fetcher",
   "icons": [
     {
       "src": "favicon.ico",

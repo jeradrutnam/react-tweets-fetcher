@@ -1,5 +1,5 @@
-# React Read Twitter
-Simple React + Node API consuming solution for Twitter API
+# React Tweets Fetcher
+Simple React + Node based API consuming solution for Twitter API
 
 ## Table of Contents
 
@@ -7,7 +7,6 @@ Simple React + Node API consuming solution for Twitter API
 - [Available Scripts](#available-scripts)
   - [npm start](#npm-start)
   - [npm test](#npm-test)
-  - [npm run build](#npm-run-build)
 - [Reporting Issues](#reporting-issues)
 - [License](#license)
 
@@ -16,20 +15,19 @@ Simple React + Node API consuming solution for Twitter API
 ```
 react-read-twitter/
   README.md
-  node_modules/
   package.json
   config.js
   server.js
   public/
+    assets/
     index.html
     favicon.ico
   src/
-    App.css
+    component/
+    pages/
     App.js
     App.test.js
-    index.css
     index.js
-    logo.svg
 ```
 
 ## Available Scripts

@@ -4,7 +4,7 @@ class Title extends Component {
   render() {
     return(
       <div>
-        <h2 className="card-title text-center">React Twitter Feed</h2>
+        <h2 className="card-title text-center">React Tweets Fetcher</h2>
       </div>
     );
   }

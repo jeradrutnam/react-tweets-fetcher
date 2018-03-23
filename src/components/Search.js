@@ -22,7 +22,7 @@ class Search extends Component {
                             <i className="material-icons">list</i>
                         </span>
                     </div>
-                    <input type="text" className="form-control" placeholder="Tweets Count" count={this.props.count} onChange={this.props.onChangeCount} />
+                    <input type="number" className="form-control" placeholder="Tweets Count" value="10" count={this.props.count} onChange={this.props.onChangeCount} />
                 </div>
             </div>
             <div className="text-center">

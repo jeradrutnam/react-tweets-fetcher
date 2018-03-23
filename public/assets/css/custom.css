@@ -16,3 +16,7 @@ body .page-header > .container {
 .info {
   max-width: 560px;
 }
+
+.navbar .card-title {
+  color: #fff;
+}

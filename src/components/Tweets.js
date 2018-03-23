@@ -8,7 +8,8 @@ class Tweets extends Component {
       searched: false,
       name: '',
       count: 10,
-      dataSource: {}
+      dataSource: {},
+      showEmpty: false,
     };
   }
 
@@ -23,12 +24,18 @@ class Tweets extends Component {
         this.setState({
           searched: true,
           dataSource: responseJson,
+          showEmpty: false,
         }, function(){
           //console.log(this.state.dataSource);
         });
 
       })
       .catch((error) => {
+        this.setState({
+          searched: true,
+          dataSource: {},
+          showEmpty: true,
+        });
         console.error(error);
       });
   }
@@ -45,25 +52,22 @@ class Tweets extends Component {
                         count={this.state.count}
                         onChangeCount={this.handleChangeCount} />
               </div>
-              <div className="col-md-12 ml-auto">
+              <div className="col-md-12 ml-auto text-center">
                   {
                       Object.keys(this.state.dataSource).map(key => {
-                          if(!this.state.searched) {
-                            return;
-                          }
-                          else {
-                            let tweet = this.state.dataSource[key],
-                                tweet_name = (tweet.retweeted_status) ? tweet.retweeted_status.user.name : tweet.user.name;
+                          if(!this.state.searched) return false;
 
-                            return <div className="info info-horizontal" key={key}>
-                                <div className="description">
-                                    <h4 className="info-title"><i className="fa fa-twitter"></i> {tweet_name}</h4>
-                                    <p className="description">
-                                        {tweet.text}
-                                    </p>
-                                </div>
-                            </div>;
-                          }
+                          let tweet = this.state.dataSource[key],
+                              tweet_name = (tweet.retweeted_status) ? tweet.retweeted_status.user.name : tweet.user.name;
+
+                          return <div className="info info-horizontal" key={key}>
+                              <div className="description">
+                                  <h4 className="info-title"><i className="fa fa-twitter"></i> {tweet_name}</h4>
+                                  <p className="description">
+                                      {tweet.text}
+                                  </p>
+                              </div>
+                          </div>;
                       })
                   }
               </div>
