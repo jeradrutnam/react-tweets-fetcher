@@ -13,22 +13,25 @@ class Tweets extends Component {
     };
   }
 
+  /**
+   * input text change handlers
+   */
   handleChangeName = e => this.setState({ name: e.target.value });
   handleChangeCount = e => this.setState({ count: e.target.value });
 
+  /**
+   * function to fetch tweets
+   */
   fetch(e){
      e.preventDefault();
-     fetch('http://localhost:3001/twitter?screen_name=' + this.state.name + '&count=' + this.state.count)
+     fetch('http://localhost:3001/twitter/get?screen_name=' + this.state.name + '&count=' + this.state.count)
       .then((response) => response.json())
       .then((responseJson) => {
         this.setState({
           searched: true,
           dataSource: responseJson,
           showEmpty: false,
-        }, function(){
-          //console.log(this.state.dataSource);
-        });
-
+        }, function(){});
       })
       .catch((error) => {
         this.setState({

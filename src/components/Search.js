@@ -6,17 +6,17 @@ class Search extends Component {
       <div>
         <form className="form mt-5 mb-5" method="" action="">
             <div className="form-group bmd-form-group">
-                <div className="input-group">
+                <div className="input-group col-md-5">
                     <div className="input-group-prepend">
                         <span className="input-group-text">
                             <i className="material-icons">face</i>
                         </span>
                     </div>
-                    <input type="text" className="form-control" placeholder="Enter Account Name" name={this.props.name} onChange={this.props.onChangeName} />
+                    <input type="text" className="form-control" placeholder="Enter Account Name" value="jeradrutnam" name={this.props.name} onChange={this.props.onChangeName} />
                 </div>
             </div>
             <div className="form-group bmd-form-group">
-                <div className="input-group">
+                <div className="input-group col-md-2">
                     <div className="input-group-prepend">
                         <span className="input-group-text">
                             <i className="material-icons">list</i>
