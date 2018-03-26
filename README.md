@@ -1,14 +1,27 @@
 # React Tweets Fetcher
 Simple React + Node based API consuming solution for Twitter API
 
+![Screenshot](https://image.ibb.co/gAZUPn/twitter.png)
+
 ## Table of Contents
 
+- [How to run](#how-to-run)
 - [Folder Structure](#folder-structure)
 - [Available Scripts](#available-scripts)
   - [npm start](#npm-start)
   - [npm test](#npm-test)
 - [Reporting Issues](#reporting-issues)
 - [License](#license)
+
+## How to run
+
+1. Create an [Twitter Oauth App][apps-twitter], and get the consumer key + secret & access token + secret. 
+2. Navigate to the root `/react-tweets-fetcher` directory and open the `config.js` file. And update the app keys there.
+3. Then run the command `node server` from the root directory using the terminal.  
+4. Then open another teminal window and run the command `npm sstart`.  
+5. Done. Now you can use the url: `http://localhost:3000/` to access the app. :)
+
+[apps-twitter]: https://apps.twitter.com/
 
 ## Folder Structure
 
