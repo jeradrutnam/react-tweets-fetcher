@@ -12,7 +12,7 @@ class Search extends Component {
                             <i className="material-icons">face</i>
                         </span>
                     </div>
-                    <input type="text" className="form-control" placeholder="Enter Account Name" value="jeradrutnam" name={this.props.name} onChange={this.props.onChangeName} />
+                    <input type="text" className="form-control" placeholder="Enter Account Name" name={this.props.name} onChange={this.props.onChangeName} />
                 </div>
             </div>
             <div className="form-group bmd-form-group">

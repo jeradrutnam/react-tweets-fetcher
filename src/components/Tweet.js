@@ -31,7 +31,7 @@ class Tweet extends Component {
       });
   }
 
-  render() {
+  render(){
     return(
       <div>
         <form className="form mt-5 mb-5" method="" action="">

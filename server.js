@@ -22,6 +22,20 @@ const app = {
     response.setHeader('Access-Control-Request-Method', '*');
     response.setHeader('Access-Control-Allow-Methods', 'OPTIONS, GET');
     response.setHeader('Access-Control-Allow-Headers', '*');
+  },
+  requestCallback: function(e, data, res, request, response){
+    console.log('[INFO] Url: ' + request.url);
+    if (e){
+      if(JSON.parse(e.data)){
+        console.error('[ERROR] ' + e.statusCode + ': ' + JSON.parse(e.data).errors[0].message);
+      }
+      else {
+        console.error('[ERROR] ' + JSON.stringify(e));
+      }
+    }
+    else {
+      response.json(JSON.parse(data));
+    }
   }
 };
 
@@ -32,14 +46,8 @@ server.get('/twitter/get', (request, response) => {
     'https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=' + request.query.screen_name + '&count=' + request.query.count,
     config.access_token,
     config.access_token_secret,
-    function (e, data, res){
-      if (e){
-        console.error('[ERROR] ' + e.statusCode + ': ' + JSON.parse(e.data).errors[0].message);
-      }
-      else {
-        console.log('[INFO] Get tweets: ' + request.url);
-        response.json(JSON.parse(data));
-      }
+    function(e, data, res){
+      app.requestCallback(e, data, res, request, response);
     }
   );
 });
@@ -53,13 +61,38 @@ server.get('/twitter/post', (request, response) => {
     config.access_token_secret,
     { status: request.query.status },
     '',
-    function (e, data, res){
-      if (e){
-        console.error('[ERROR] ' + e.statusCode + ': ' + JSON.parse(e.data).errors[0].message);
-      }
-      else {
-        console.log('[INFO] Post tweet: ' + request.query.status);
-      }
+    function(e, data, res){
+      app.requestCallback(e, data, res, request, response);
+    }
+  );
+});
+
+server.get('/twitter/retweet', (request, response) => {
+  app.allowOrigin(response);
+
+  oauth.post(
+    'https://api.twitter.com/1.1/statuses/retweet/' + request.query.id + '.json',
+    config.access_token,
+    config.access_token_secret,
+    {},
+    '',
+    function(e, data, res){
+      app.requestCallback(e, data, res, request, response);
+    }
+  );
+});
+
+server.get('/twitter/like', (request, response) => {
+  app.allowOrigin(response);
+
+  oauth.post(
+    'https://api.twitter.com/1.1/favorites/create.json?id=' + request.query.id,
+    config.access_token,
+    config.access_token_secret,
+    {},
+    '',
+    function(e, data, res){
+      app.requestCallback(e, data, res, request, response);
     }
   );
 });

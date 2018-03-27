@@ -43,6 +43,34 @@ class Tweets extends Component {
       });
   }
 
+  /**
+   * function to like
+   */
+  like(e){
+     e.preventDefault();
+     fetch('http://localhost:3001/twitter/like?id=' + e.currentTarget.value)
+      .then((response) => response.json())
+      .then((responseJson) => {})
+      .catch((error) => {
+        console.error(error);
+      });
+  }
+
+  /**
+   * function to retweet
+   */
+  retweet(e, tweet){
+     e.preventDefault();
+     fetch('http://localhost:3001/twitter/retweet?id=' + e.currentTarget.value)
+      .then((response) => response.json())
+      .then((responseJson) => {
+
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
+
   render() {
     return(
       <div>
@@ -61,7 +89,9 @@ class Tweets extends Component {
                           if(!this.state.searched) return false;
 
                           let tweet = this.state.dataSource[key],
-                              tweet_name = (tweet.retweeted_status) ? tweet.retweeted_status.user.name : tweet.user.name;
+                              tweet_name = (tweet.retweeted_status) ? tweet.retweeted_status.user.name : tweet.user.name,
+                              tweet_retweet_css = (tweet.retweeted) ? 'btn btn-link text-primary' : 'btn btn-link',
+                              tweet_like_css = (tweet.favorited) ? 'btn btn-link text-danger' : 'btn btn-link';
 
                           return <div className="info info-horizontal" key={key}>
                               <div className="description">
@@ -69,6 +99,10 @@ class Tweets extends Component {
                                   <p className="description">
                                       {tweet.text}
                                   </p>
+                                  <div className="actions">
+                                      <button value={tweet.id_str} onClick={e => this.like(e)} className={tweet_like_css}><i className="fa fa-heart"></i> {tweet.favorite_count}</button>
+                                      <button value={tweet.id_str} onClick={e => this.retweet(e)} className={tweet_retweet_css}><i className="fa fa-retweet"></i> {tweet.retweet_count}</button>
+                                  </div>
                               </div>
                           </div>;
                       })
